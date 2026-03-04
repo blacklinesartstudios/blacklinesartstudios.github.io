@@ -3,48 +3,169 @@
 <head>
 <title>Blacklines Art Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Blacklines Art Studio - Professional poster design, branding and film artwork.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+
 <style>
-body {margin:0;font-family:Arial;background:#000;color:#fff;}
-header {text-align:center;padding:80px 20px;background:#111;}
-header h1 {font-size:48px;margin:0;letter-spacing:3px;}
-header p {color:#aaa;font-size:18px;}
-section {padding:60px 20px;text-align:center;}
-h2 {font-size:32px;margin-bottom:30px;}
-.portfolio img {width:300px;margin:15px;border-radius:10px;}
-footer {background:#111;padding:30px;text-align:center;color:#aaa;}
-a {color:#fff;text-decoration:none;}
-.button {display:inline-block;margin-top:20px;padding:12px 25px;background:#fff;color:#000;border-radius:5px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:'Poppins',sans-serif;
+background:#000;
+color:#fff;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(180deg,#000,#111);
+}
+
+header h1{
+font-size:60px;
+letter-spacing:6px;
+font-weight:800;
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+header p{
+margin-top:20px;
+font-size:20px;
+color:#aaa;
+opacity:0;
+transform:translateY(50px);
+transition:1.2s;
+}
+
+.btn{
+margin-top:30px;
+padding:12px 30px;
+border:1px solid #fff;
+text-decoration:none;
+color:#fff;
+transition:0.3s;
+opacity:0;
+transform:translateY(50px);
+}
+.btn:hover{
+background:#fff;
+color:#000;
+}
+
+section{
+padding:100px 10%;
+text-align:center;
+opacity:0;
+transform:translateY(80px);
+transition:1s;
+}
+
+h2{
+font-size:36px;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:#111;
+padding:20px;
+border-radius:10px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:scale(1.05);
+background:#1a1a1a;
+}
+
+.card img{
+width:100%;
+border-radius:8px;
+}
+
+footer{
+background:#111;
+padding:40px;
+text-align:center;
+color:#888;
+}
+
+/* Visible animation class */
+.show{
+opacity:1 !important;
+transform:translateY(0) !important;
+}
 </style>
 </head>
+
 <body>
 
 <header>
 <h1>BLACKLINES ART STUDIO</h1>
-<p>Where Vision Meets Precision</p>
-<a href="#contact" class="button">Hire Us</a>
+<p>Bold. Cinematic. Precision Design.</p>
+<a href="#contact" class="btn">Work With Us</a>
 </header>
 
 <section>
-<h2>About Us</h2>
-<p>Blacklines Art Studio specializes in creative poster design, branding, film artwork, and travel visuals. We bring bold ideas to life with precision and impact.</p>
+<h2>About</h2>
+<p>We craft high-impact posters, branding identities, and cinematic artwork that elevate brands and stories. Blacklines Art Studio focuses on precision and visual strength.</p>
 </section>
 
-<section class="portfolio">
-<h2>Portfolio</h2>
-<img src="https://via.placeholder.com/300x400">
-<img src="https://via.placeholder.com/300x400">
-<img src="https://via.placeholder.com/300x400">
+<section>
+<h2>Our Work</h2>
+<div class="grid">
+<div class="card">
+<img src="https://via.placeholder.com/400x500">
+<h3>Film Poster Design</h3>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x500">
+<h3>Brand Identity</h3>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x500">
+<h3>Creative Visuals</h3>
+</div>
+</div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
-<p>Email: blacklinesartstudios@gmail.com</p>
+<p>📧 blacklinesartstudios@gmail.com</p>
 <p>Instagram: @blacklinesartstudio</p>
 </section>
 
 <footer>
 © 2026 Blacklines Art Studio. All Rights Reserved.
 </footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll("header h1, header p, .btn, section").forEach(el => {
+observer.observe(el);
+});
+</script>
 
 </body>
 </html>
